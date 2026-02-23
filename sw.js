@@ -1,13 +1,12 @@
-const CACHE_NAME = 'forester-v1';
+const CACHE_NAME = 'forester-v2';
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/app.jsx',
-  '/manifest.json',
+  '/forester-tracker/',
+  '/forester-tracker/index.html',
+  '/forester-tracker/app.jsx',
+  '/forester-tracker/manifest.json',
   'https://unpkg.com/react@18/umd/react.production.min.js',
   'https://unpkg.com/react-dom@18/umd/react-dom.production.min.js',
-  'https://unpkg.com/@babel/standalone/babel.min.js',
-  'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap'
+  'https://unpkg.com/@babel/standalone/babel.min.js'
 ];
 
 self.addEventListener('install', e => {
@@ -26,6 +25,6 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   e.respondWith(
-    caches.match(e.request).then(r => r || fetch(e.request).catch(() => caches.match('/index.html')))
+    caches.match(e.request).then(r => r || fetch(e.request).catch(() => caches.match('/forester-tracker/index.html')))
   );
 });
